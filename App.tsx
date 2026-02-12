@@ -106,7 +106,7 @@ const App: React.FC = () => {
               <div className="relative">
                 <div className="aspect-[4/5] rounded-2xl overflow-hidden border border-deep-teal-800 shadow-2xl">
                   <img
-                    src="https://images.unsplash.com/photo-1544376798-89aa6b82c6cd?q=80&w=1974&auto=format&fit=crop"
+                    src="/yate-atardecer-cartagena.png"
                     alt="Luxury Experience"
                     className="w-full h-full object-cover"
                   />

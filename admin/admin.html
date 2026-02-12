@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Turismo de Lujo</title>
+    <link rel="stylesheet" href="admin-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="loginScreen" class="login-screen">
+        <div class="login-container">
+            <div class="login-header">
+                <i class="fas fa-user-shield"></i>
+                <h1>Panel de Administración</h1>
+                <p>Turismo de Lujo</p>
+            </div>
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="username">
+                        <i class="fas fa-user"></i>
+                        Usuario
+                    </label>
+                    <input type="text" id="username" name="username" required autocomplete="username">
+                </div>
+                <div class="form-group">
+                    <label for="password">
+                        <i class="fas fa-lock"></i>
+                        Contraseña
+                    </label>
+                    <input type="password" id="password" name="password" required autocomplete="current-password">
+                </div>
+                <div id="loginError" class="error-message" style="display: none;"></div>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-sign-in-alt"></i>
+                    Iniciar Sesión
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Panel -->
+    <div id="adminPanel" class="admin-panel" style="display: none;">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <i class="fas fa-plane-departure"></i>
+                <h2>Admin Panel</h2>
+            </div>
+            
+            <div class="user-info">
+                <i class="fas fa-user-circle"></i>
+                <div>
+                    <strong id="currentUsername"></strong>
+                    <span id="currentUserRole" class="user-role"></span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-section="destinos">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <span>Destinos</span>
+                </a>
+                <a href="#" class="nav-item" data-section="subdestinos">
+                    <i class="fas fa-map-pin"></i>
+                    <span>Subdestinos</span>
+                </a>
+                <a href="#" class="nav-item" data-section="servicios">
+                    <i class="fas fa-concierge-bell"></i>
+                    <span>Servicios</span>
+                </a>
+                <a href="#" class="nav-item" data-section="paquetes">
+                    <i class="fas fa-box-open"></i>
+                    <span>Paquetes</span>
+                </a>
+                <a href="#" class="nav-item" data-section="imagenes">
+                    <i class="fas fa-images"></i>
+                    <span>Galería de Imágenes</span>
+                </a>
+                <a href="#" class="nav-item" data-section="usuarios">
+                    <i class="fas fa-users"></i>
+                    <span>Usuarios</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button id="logoutBtn" class="btn btn-danger">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Cerrar Sesión
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="content-header">
+                <h1 id="sectionTitle">Destinos</h1>
+                <button id="addNewBtn" class="btn btn-success">
+                    <i class="fas fa-plus"></i>
+                    <span id="addNewText">Nuevo Destino</span>
+                </button>
+            </header>
+
+            <div class="content-body">
+                <!-- Search and Filters -->
+                <div class="filters-section">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="searchInput" placeholder="Buscar...">
+                    </div>
+                    <div class="filter-controls">
+                        <select id="filterActivo" class="filter-select">
+                            <option value="">Todos los estados</option>
+                            <option value="1">Activos</option>
+                            <option value="0">Inactivos</option>
+                        </select>
+                        <select id="filterExtra" class="filter-select" style="display: none;">
+                            <!-- Dinámico según sección -->
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Data Table -->
+                <div id="dataTable" class="data-table">
+                    <div class="loading">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p>Cargando datos...</p>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <div id="pagination" class="pagination" style="display: none;">
+                    <button id="prevPage" class="btn btn-secondary">
+                        <i class="fas fa-chevron-left"></i>
+                        Anterior
+                    </button>
+                    <span id="pageInfo">Página 1 de 1</span>
+                    <button id="nextPage" class="btn btn-secondary">
+                        Siguiente
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal para Crear/Editar -->
+    <div id="formModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Nuevo Item</h2>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="itemForm">
+                    <div id="formFields">
+                        <!-- Campos dinámicos según sección -->
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary modal-close">
+                            <i class="fas fa-times"></i>
+                            Cancelar
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i>
+                            Guardar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Gestión de Imágenes -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h2 id="imageModalTitle">Gestión de Imágenes</h2>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="image-manager">
+                    <!-- Sección para agregar nueva imagen -->
+                    <div class="add-image-section">
+                        <h3>
+                            <i class="fas fa-plus-circle"></i>
+                            Agregar Nueva Imagen
+                        </h3>
+                        <form id="addImageForm">
+                            <div class="form-row">
+                                <div class="form-group flex-2">
+                                    <label>URL de la Imagen</label>
+                                    <input type="url" id="imageUrl" placeholder="https://ejemplo.com/imagen.jpg" required>
+                                </div>
+                                <div class="form-group flex-1">
+                                    <label>Orden</label>
+                                    <input type="number" id="imageOrden" value="0" min="0">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group flex-2">
+                                    <label>Texto Alternativo</label>
+                                    <input type="text" id="imageAlt" placeholder="Descripción de la imagen">
+                                </div>
+                                <div class="form-group flex-1">
+                                    <label>
+                                        <input type="checkbox" id="imageEsPrincipal">
+                                        Imagen Principal
+                                    </label>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-success">
+                                <i class="fas fa-plus"></i>
+                                Agregar Imagen
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Preview de la imagen que se va a agregar -->
+                    <div id="imagePreview" class="image-preview" style="display: none;">
+                        <h4>Vista Previa:</h4>
+                        <img id="previewImg" src="" alt="Preview">
+                    </div>
+
+                    <!-- Lista de imágenes existentes -->
+                    <div class="images-list-section">
+                        <h3>
+                            <i class="fas fa-images"></i>
+                            Imágenes Actuales
+                        </h3>
+                        <div id="currentImagesList" class="images-grid">
+                            <div class="loading">
+                                <i class="fas fa-spinner fa-spin"></i>
+                                <p>Cargando imágenes...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <!-- Scripts -->
+    <script src="admin-config.js"></script>
+    <script src="admin-api.js"></script>
+    <script src="admin-ui.js"></script>
+    <script src="admin-main.js"></script>
+</body>
+</html>
