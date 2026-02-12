@@ -1,0 +1,15 @@
+[11-Feb-2026 14:31:56 America/Bogota] PHP Warning:  require_once(/home/cartagen/public_html/api/auth/../utils/helpers.php): Failed to open stream: No such file or directory in /home/cartagen/public_html/api/auth/login.php on line 22
+[11-Feb-2026 14:31:56 America/Bogota] PHP Fatal error:  Uncaught Error: Failed opening required '/home/cartagen/public_html/api/auth/../utils/helpers.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/cartagen/public_html/api/auth/login.php:22
+Stack trace:
+#0 {main}
+  thrown in /home/cartagen/public_html/api/auth/login.php on line 22
+[11-Feb-2026 14:32:01 America/Bogota] PHP Warning:  require_once(/home/cartagen/public_html/api/auth/../utils/helpers.php): Failed to open stream: No such file or directory in /home/cartagen/public_html/api/auth/login.php on line 22
+[11-Feb-2026 14:32:01 America/Bogota] PHP Fatal error:  Uncaught Error: Failed opening required '/home/cartagen/public_html/api/auth/../utils/helpers.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/cartagen/public_html/api/auth/login.php:22
+Stack trace:
+#0 {main}
+  thrown in /home/cartagen/public_html/api/auth/login.php on line 22
+[11-Feb-2026 14:32:06 America/Bogota] PHP Warning:  require_once(/home/cartagen/public_html/api/auth/../utils/helpers.php): Failed to open stream: No such file or directory in /home/cartagen/public_html/api/auth/login.php on line 22
+[11-Feb-2026 14:32:06 America/Bogota] PHP Fatal error:  Uncaught Error: Failed opening required '/home/cartagen/public_html/api/auth/../utils/helpers.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/cartagen/public_html/api/auth/login.php:22
+Stack trace:
+#0 {main}
+  thrown in /home/cartagen/public_html/api/auth/login.php on line 22

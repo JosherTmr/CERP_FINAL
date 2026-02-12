@@ -1,0 +1,7 @@
+{
+  "name": "Cartagena Entertainment Rent And Pleasure",
+  "description": "Exclusive boutique tourism agency in Cartagena offering luxury packages, premium experiences, and customized travel services with a tropical lifestyle aesthetic.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
