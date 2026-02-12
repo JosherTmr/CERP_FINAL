@@ -272,7 +272,7 @@ const App: React.FC = () => {
                 onClick={() => handleNavigate({ view: 'home' })}
               >
                 <img
-                  src="/assets/Logo_CERP.webp"
+                  src="/Logo_CERP.webp"
                   alt="CERP Logo"
                   className="w-10 h-10 object-contain"
                 />

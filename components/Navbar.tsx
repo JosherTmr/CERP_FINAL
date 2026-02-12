@@ -74,7 +74,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentNav, onNavigate }) => {
             onClick={() => handleNavClick('home', '#home')}
           >
             <img
-              src="/assets/Logo_CERP.webp"
+              src="/Logo_CERP.webp"
               alt="CERP Logo"
               className="w-12 h-12 object-contain group-hover:scale-110 transition-transform"
             />
