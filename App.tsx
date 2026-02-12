@@ -55,7 +55,7 @@ const App: React.FC = () => {
 
           <div className="container mx-auto px-6 relative z-10 text-center max-w-4xl">
             <h1 className="text-5xl md:text-7xl font-serif font-bold mb-6 leading-tight animate-fade-in-up">
-              Experiencias Únicas en <span className="text-celadon-500">el Caribe</span>
+              Atrévete a vivir tu aventura en el <span className="text-celadon-500">corazón del caribe</span>
             </h1>
             <p className="text-lg md:text-xl text-deep-teal-50/80 mb-10 max-w-2xl mx-auto leading-relaxed animate-fade-in-up delay-200">
               Descubre el lujo accesible en el corazón del Caribe. Turismo, entretenimiento y servicios premium diseñados exclusivamente para ti.
@@ -271,9 +271,13 @@ const App: React.FC = () => {
                 className="flex items-center gap-2 mb-8 cursor-pointer"
                 onClick={() => handleNavigate({ view: 'home' })}
               >
-                <div className="w-8 h-8 tropical-gradient rounded-full flex items-center justify-center text-deep-teal-950 font-bold">C</div>
+                <img
+                  src="/assets/Logo_CERP.webp"
+                  alt="CERP Logo"
+                  className="w-10 h-10 object-contain"
+                />
                 <span className="text-lg font-serif font-bold tracking-tight">
-                  Cartagena <span className="text-celadon-500">Rent & Pleasure</span>
+                  Cartagena Entertainment <span className="text-celadon-500">Rent and Pleasure</span>
                 </span>
               </div>
               <p className="text-deep-teal-50/50 text-sm leading-relaxed mb-8">

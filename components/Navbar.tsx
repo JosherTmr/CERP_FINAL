@@ -73,11 +73,13 @@ const Navbar: React.FC<NavbarProps> = ({ currentNav, onNavigate }) => {
             className="flex items-center gap-3 cursor-pointer group"
             onClick={() => handleNavClick('home', '#home')}
           >
-            <div className="w-10 h-10 tropical-gradient rounded-full flex items-center justify-center text-deep-teal-950 font-bold text-xl shadow-lg shadow-celadon-500/20 group-hover:scale-110 transition-transform">
-              C
-            </div>
+            <img
+              src="/assets/Logo_CERP.webp"
+              alt="CERP Logo"
+              className="w-12 h-12 object-contain group-hover:scale-110 transition-transform"
+            />
             <span className="text-xl font-serif font-bold tracking-tight hidden sm:block">
-              Cartagena <span className="text-celadon-500">Entertainment</span>
+              Cartagena Entertainment <span className="text-celadon-500">Rent and Pleasure</span>
             </span>
           </div>
         </div>
